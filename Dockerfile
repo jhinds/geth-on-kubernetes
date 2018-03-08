@@ -15,8 +15,9 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 
 RUN apt-get update && \
     apt-get install -y nodejs
-
-RUN npm install web3@0.20.1 truffle-contract bluebird jquery --save
+    
+ENV WEB3_VERSION=1.0.0-beta.30
+RUN npm install web3@$WEB3_VERSION truffle-contract bluebird jquery --save
 
 WORKDIR /root
 # 
