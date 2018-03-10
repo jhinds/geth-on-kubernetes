@@ -7,6 +7,8 @@ From with repository root.
 ```
 $ export TAG=latest && \
     export REPO=jhinds && \
-    docker build -t $REPO/geth:$TAG . && \
+    docker build -t $REPO/geth:$TAG docker/ && \
     docker push $REPO/geth:$TAG
 ```
+
+# Deploy To Kubernetes
