@@ -12,3 +12,6 @@ $ export TAG=latest && \
 ```
 
 # Deploy To Kubernetes
+```
+helm install helm/geth 
+```
