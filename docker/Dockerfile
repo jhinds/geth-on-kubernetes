@@ -22,9 +22,8 @@ RUN npm install web3@$WEB3_VERSION
 RUN npm install truffle-contract bluebird jquery --save
 
 WORKDIR /root
-#
 COPY genesis42.json /root/genesis42.json
 COPY launch42.sh /root/launch42.sh
-COPY genesis42.json /root/genesis42.json
+RUN chmod +x /root/launch42.sh
 
 CMD ["/root/launch42.sh"]

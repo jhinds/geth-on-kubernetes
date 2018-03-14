@@ -10,10 +10,14 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+    - port: 8545
+      targetPort: geth
       protocol: TCP
-      name: http
+      name: geth
+    - port: 30303
+      targetPort: geth-gossip
+      protocol: TCP
+      name: geth-gossip
   selector:
     app: {{ template "geth.name" . }}
     release: {{ .Release.Name }}

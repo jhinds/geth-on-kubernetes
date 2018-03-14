@@ -1,5 +1,5 @@
 apiVersion: apps/v1beta2
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ template "geth.fullname" . }}
   labels:
@@ -24,8 +24,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - name: http
-              containerPort: 80
+            - name: geth
+              containerPort: 8545
+              protocol: TCP
+            - name: geth-gossip
+              containerPort: 30303
               protocol: TCP
           livenessProbe:
             httpGet:
